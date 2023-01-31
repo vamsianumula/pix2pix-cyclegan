@@ -1,4 +1,4 @@
-from generator import UnetGenerator
+from unet_generator import UnetGenerator
 from discriminator import Discriminator
 import torch
 import matplotlib.pyplot as plt
@@ -10,7 +10,7 @@ class pix2pix:
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.gen = UnetGenerator().to(self.device)
         self.dis = Discriminator().to(self.device)
-        self.epoch = config["epochs"]
+        self.epochs = config["epochs"]
         self.lrs = config["lrs"]
         self.lambdaa = config["lambda"]
         self.gen_optim = torch.optim.Adam(self.gen.parameters(), lr=self.lrs[0],betas=(0.5,0.999))

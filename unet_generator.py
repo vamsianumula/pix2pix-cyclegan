@@ -17,7 +17,7 @@ class DownSampleBlock(nn.Module):
       x = self.bn(x)
     x = self.relu(x)
     return x
-
+  
 class UpSampleBlock(nn.Module):
   def __init__(self, in_ch, out_ch, use_dropout=True):
     super().__init__()
